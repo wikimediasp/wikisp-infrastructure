@@ -245,3 +245,7 @@ $wgNamespacesWithSubpages = [
 	NS_CONFERENCE=> true,
 	NS_CONFERENCE_TALK => true
 ];
+
+# wgAllowDisplayTitle + RestrictDisplayTitle
+$wgAllowDisplayTitle = true;
+$wgRestrictDisplayTitle = false;
