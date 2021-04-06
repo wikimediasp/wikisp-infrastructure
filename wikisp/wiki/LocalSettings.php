@@ -274,3 +274,13 @@ $wgTranslateDocumentationLanguageCode = 'qqq';
 $wgExtraLanguageNames['qqq'] = 'Message documentation'; # No linguistic content. Used for documenting messages
 
 wfLoadExtension( 'UniversalLanguageSelector' );
+
+# Translate Sidebar
+$wgHooks['TranslatePostInitGroups'][] = function ( &$list, &$deps, &$autoload ) {
+	$id = 'wiki-sidebar';
+	$mg = new WikiMessageGroup( $id, 'sidebar-messages' );
+	$mg->setLabel( 'Sidebar' );
+	$mg->setDescription( 'Messages used in the sidebar of this wiki.' );
+	$list[$id] = $mg;
+	return true;
+}
