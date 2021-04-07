@@ -284,3 +284,7 @@ $wgHooks['TranslatePostInitGroups'][] = function ( &$list, &$deps, &$autoload ) 
 	$list[$id] = $mg;
 	return true;
 };
+
+# wgForceUIMsgAsContentMsg
+$wgForceUIMsgAsContentMsg = ['sidebar-discuss-link'];
+
