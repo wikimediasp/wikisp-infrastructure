@@ -146,10 +146,12 @@ $wgGroupPermissions['sysop']['upload'] = true;
 $wgGroupPermissions['sysop']['flow-create-board'] = true;
 $wgGroupPermissions['sysop']['createaccount'] = false;
 ## TechCom
-$wgGroupPermissions['techcom']['siteadmin'] = true;
-$wgGroupsAddToSelf['techcom'] = array( 'sysop', 'interface-admin', 'checkuser', 'suppress' );
-$wgGroupsRemoveFromSelf['techcom'] = array( 'sysop', 'interface-admin', 'checkuser', 'suppress' );
+$wgGroupsAddToSelf['techcom'] = array( 'checkuser', 'suppress' );
+$wgGroupsRemoveFromSelf['techcom'] = array( 'checkuser', 'suppress' );
 $wgGroupPermissions['techcom']['unblockable'] = true;
+$wgGroupPermissions['techcom']['siteadmin'] = true;
+$wgGroupPermissions['techcom'] = $wgGroupPermissions['interface-admin'];
+$wgGroupPermissions['techcom'] = $wgGroupPermissions['sysop'];
 ## AdminCom
 $wgGroupPermissions['admincom']['staffedit'] = true;
 $wgAddGroups['admincom'] = ['checkuser', 'suppress', 'nomcom', 'admincom', 'techcom', 'staff'];
