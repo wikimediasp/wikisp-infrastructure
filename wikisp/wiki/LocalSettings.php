@@ -290,3 +290,6 @@ $wgHooks['TranslatePostInitGroups'][] = function ( &$list, &$deps, &$autoload ) 
 # wgForceUIMsgAsContentMsg
 $wgForceUIMsgAsContentMsg = ['sidebar-discuss-link'];
 
+# wgPageLanguage
+$wgPageLanguageUseDB = true;
+$wgGroupPermissions['sysop']['pagelang'] = true;
