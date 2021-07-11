@@ -293,3 +293,9 @@ $wgForceUIMsgAsContentMsg = ['sidebar-discuss-link'];
 # wgPageLanguage
 $wgPageLanguageUseDB = true;
 $wgGroupPermissions['sysop']['pagelang'] = true;
+
+#Debug - cuando se requiera, se descomenta
+#$wgDebugLogFile = "/var/log/mediawiki/debug-{$wgDBname}.log";
+#$wgDebugComments = true;
+#$wgShowExceptionDetails = true;
+
