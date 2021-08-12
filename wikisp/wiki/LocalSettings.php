@@ -294,6 +294,10 @@ $wgForceUIMsgAsContentMsg = ['sidebar-discuss-link'];
 $wgPageLanguageUseDB = true;
 $wgGroupPermissions['sysop']['pagelang'] = true;
 
+# CodeMirror
+wfLoadExtension( 'CodeMirror' );
+$wgDefaultUserOptions['usecodemirror'] = 1;
+
 #Debug - cuando se requiera, se descomenta
 #$wgDebugLogFile = "/var/log/mediawiki/debug-{$wgDBname}.log";
 #$wgDebugComments = true;
