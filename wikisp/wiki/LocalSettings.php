@@ -299,6 +299,9 @@ $wgGroupPermissions['sysop']['pagelang'] = true;
 wfLoadExtension( 'CodeMirror' );
 $wgDefaultUserOptions['usecodemirror'] = 1;
 
+# SyntaxHighlight
+wfLoadExtension( 'SyntaxHighlight_GeSHi' );
+
 #Debug - cuando se requiera, se descomenta
 #$wgDebugLogFile = "/var/log/mediawiki/debug-{$wgDBname}.log";
 #$wgDebugComments = true;
