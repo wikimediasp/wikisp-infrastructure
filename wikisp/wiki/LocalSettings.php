@@ -188,7 +188,6 @@ wfLoadExtension( 'Interwiki' );
 $wgGroupPermissions['sysop']['interwiki'] = true;
 
 wfLoadExtension( 'MobileFrontend' );
-wfLoadExtension( 'MultimediaViewer' );
 
 # Scribunto
 wfLoadExtension( 'Scribunto' );
