@@ -302,6 +302,15 @@ $wgDefaultUserOptions['usecodemirror'] = 1;
 # SyntaxHighlight
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 
+# UserMerge
+wfLoadExtension( 'UserMerge' );
+// By default nobody can use this function, enable for bureaucrat?
+$wgGroupPermissions['bureaucrat']['usermerge'] = true;
+$wgGroupPermissions['techcom']['usermerge'] = true;
+// optional: default is array( 'sysop' )
+$wgUserMergeProtectedGroups = [ 'founder' ];
+
+
 #Debug - cuando se requiera, se descomenta
 #$wgDebugLogFile = "/var/log/mediawiki/debug-{$wgDBname}.log";
 #$wgDebugComments = true;
