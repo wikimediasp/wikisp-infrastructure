@@ -310,6 +310,8 @@ $wgGroupPermissions['techcom']['usermerge'] = true;
 // optional: default is array( 'sysop' )
 $wgUserMergeProtectedGroups = [ 'founder' ];
 
+# Counter
+wfLoadExtension ( 'Counter' );
 
 #Debug - cuando se requiera, se descomenta
 #$wgDebugLogFile = "/var/log/mediawiki/debug-{$wgDBname}.log";
