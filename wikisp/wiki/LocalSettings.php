@@ -313,6 +313,9 @@ $wgUserMergeProtectedGroups = [ 'founder' ];
 # Counter
 wfLoadExtension ( 'Counter' );
 
+# TabberNeue - T292344
+wfLoadExtension( 'TabberNeue' );
+
 #Debug - cuando se requiera, se descomenta
 #$wgDebugLogFile = "/var/log/mediawiki/debug-{$wgDBname}.log";
 #$wgDebugComments = true;
