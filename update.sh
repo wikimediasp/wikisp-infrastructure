@@ -13,11 +13,11 @@ apt upgrade -y
 
 echo Dormiré otro ratito...
 sleep 5s
-echo Listo! Descargando nueva versión de MediaWiki 1.36.2
+echo Listo! Descargando nueva versión de MediaWiki 1.37
 
-curl -O https://releases.wikimedia.org/mediawiki/1.36/mediawiki-1.36.2.zip
+curl -O https://releases.wikimedia.org/mediawiki/1.37/mediawiki-1.37.0.zip
 
-echo Sacando del paquete a MediaWiki 1.36.2
+echo Sacando del paquete a MediaWiki 1.37
 
 unzip mediawiki-*.zip
 
@@ -32,15 +32,15 @@ echo Tomaré un cafecito...
 sleep 5s
 echo Listo! Copiando LocalSettings.php y wsp-config a wiki2. Moviendo wiki2 a wikisp
 
-cp wikisp-mw-config/wikisp/wiki/LocalSettings.php wiki2/LocalSettings.php
-cp wikisp-mw-config/wikisp/wiki/wsp-config wiki2/wsp-config
+cp wikisp-mw-config/juno/wiki/LocalSettings.php wiki2/LocalSettings.php
+cp wikisp-mw-config/juno/wiki/wsp-config wiki2/wsp-config
 mv wiki2 /var/www/wikisp/
 
 echo Tomaré otro cafecito...
 sleep 5s
 echo Listo! Moviendo wiki2 a wikisp y copiando archivos importantes de wiki
 
-cp /var/www/wikisp/wiki/wsp-config/private/PrivateSettings.php /var/www/wikisp/wiki2/wsp-config/private/PrivateSettings.php
+# cp /var/www/wikisp/wiki/wsp-config/private/PrivateSettings.php /var/www/wikisp/wiki2/wsp-config/private/PrivateSettings.php
 cp /var/www/wikisp/wiki/.htaccess /var/www/wikisp/wiki2/.htaccess
 
 echo Moviéndonos a carpeta extensiones y descargando
