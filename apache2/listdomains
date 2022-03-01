@@ -1,7 +1,0 @@
-# Bajo CloudFlare
-wikisp.org
-ticket.wikisp.org
-status.wikisp.org
-
-# Bajo Lets Encrypt
-stigma.wikisp.org # Redirige a ticket.wikisp.org si no se proporciona el puerto correcto
