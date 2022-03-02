@@ -7,4 +7,4 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
 
-require_once ( "$wspConfig/JunoSettings.php" );
+require_once ( "$IP/wsp-config/JunoSettings.php" );

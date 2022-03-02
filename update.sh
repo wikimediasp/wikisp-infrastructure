@@ -23,8 +23,8 @@ unzip mediawiki-*.zip
 
 echo Cambiando el nombre de la carpeta y actualizando repositorio de wikisp
 
-mv mediawiki-* wiki2
-cd wikisp-mw-config
+mv mediawiki-* wiki2/
+cd mediawiki-config
 git pull
 cd ..
 
@@ -32,8 +32,8 @@ echo Tomaré un cafecito...
 sleep 5s
 echo Listo! Copiando LocalSettings.php y wsp-config a wiki2. Moviendo wiki2 a wikisp
 
-cp wikisp-mw-config/juno/wiki/LocalSettings.php wiki2/LocalSettings.php
-cp wikisp-mw-config/juno/wiki/wsp-config wiki2/wsp-config
+cp mediawiki-config/juno/wiki/LocalSettings.php wiki2/LocalSettings.php
+cp mediawiki-config/juno/wiki/wsp-config wiki2/wsp-config
 mv wiki2 /var/www/wikisp/
 
 echo Tomaré otro cafecito...
@@ -70,7 +70,8 @@ echo Nos tomamos un pequeño descanso...
 sleep 5s
 echo Seguimos descargando...
 
-git clone https://github.com/sagamusix/MediaWiki-Counter.git
+git clone https://github.com/sagamusix/MediaWiki-Counter.git Counter
+git clone https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue.git TabberNeue
 git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/cldr
 git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/CleanChanges
 git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/Flow
@@ -90,9 +91,8 @@ git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/ContactPage
 
 echo Nos tomamos un pequeño descanso...
 sleep 5s
-echo Cambiando nombre de extension Counter. Usando composer install
+echo Usando composer install
 
-mv MediaWiki-Counter Counter
 cd Flow
 composer install --no-dev
 

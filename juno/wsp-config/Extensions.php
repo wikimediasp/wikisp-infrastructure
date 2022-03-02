@@ -53,7 +53,7 @@ $wgStaffPowersStewardGroupName = 'founder';
 
 # WSOAuth
 wfLoadExtension( 'WSOAuth' );
-#$wgOAuthUri = 'https://meta.wikimedia.org/w/index.php?title=Special:OAuth';
+$wgOAuthUri = 'https://meta.wikimedia.org/w/index.php?title=Special:OAuth';
 
 # CleanChanges
 wfLoadExtension( 'CleanChanges' );
