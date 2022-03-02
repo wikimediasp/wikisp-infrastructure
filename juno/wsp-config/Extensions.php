@@ -24,7 +24,7 @@ wfLoadExtension( 'Echo' );
 wfLoadExtension( 'Babel' );
 wfLoadExtension( 'cldr' );
 wfLoadExtension( 'UniversalLanguageSelector' );
-wfLoadExtension ( 'Counter' );
+#wfLoadExtension ( 'Counter' );
 wfLoadExtension( 'TabberNeue' );
 
 # Flow & ParserFunctions need to be instaled both
