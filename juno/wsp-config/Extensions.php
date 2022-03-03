@@ -10,13 +10,11 @@ wfLoadExtension( 'Gadgets' );
 wfLoadExtension( 'InputBox' );
 wfLoadExtension( 'Interwiki' );
 wfLoadExtension( 'ParserFunctions' );
-wfLoadExtension( 'PdfHandler' );
 wfLoadExtension( 'Poem' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TemplateStyles' );
 wfLoadExtension( 'WikiEditor' );
-wfLoadExtension( 'PluggableAuth' );
 wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'CheckUser' );
 wfLoadExtension( 'intersection' );
@@ -30,8 +28,6 @@ wfLoadExtension( 'TabberNeue' );
 # Flow & ParserFunctions need to be instaled both
 wfLoadExtension( 'Flow' );
 $wgFlowContentFormat = 'html';
-
-
 
 # MobileFrontend
 wfLoadExtension( 'MobileFrontend' );
@@ -50,6 +46,10 @@ $wgStaffEditsMessagePrefix = wsp;
 # StaffPowers
 wfLoadExtension( 'StaffPowers' );
 $wgStaffPowersStewardGroupName = 'founder';
+
+# PluggableAuth
+wfLoadExtension( 'PluggableAuth' );
+#$wgPluggableAuth_EnableLocalProperties = true;
 
 # WSOAuth
 wfLoadExtension( 'WSOAuth' );
