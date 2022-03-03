@@ -35,24 +35,23 @@ $wgResourceBasePath = $wgScriptPath;
 
 ## WSP Config
 $wspConfig = "$IP/wsp-config";
-$wspIdentity = "$wspConfig/identity";
 
 ## The URL paths to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
 $wgLogos = [ 
-    'svg' => "$wspIdentity/wikisp-icon.svg",
+    'svg' => "$wgResourceBasePath/resources/assets/wikisp-icon.svg",
     'wordmark' => [
-	 'src' => "$wspIdentity/wikisp-wordmark.svg",
+	 'src' => "$wgResourceBasePath/resources/assets/wikisp-wordmark.svg",
          'width' => 200,
          'height' => 51,
     ],      	   
 ];
 
 ## Favicon
-$wgFavicon = "$wspIdentity/favicon.ico";
+$wgFavicon = "$wgResourceBasePath/resources/assets/favicon.ico";
 
 ## AppleTouchIcon
-$wgAppleTouchIcon = "$wspIdentity/apple-touch-icon.png";
+$wgAppleTouchIcon = "$wgResourceBasePath/resources/assets/apple-touch-icon.png";
 
 ## UPO means: this is also a user preference option
 
@@ -121,7 +120,7 @@ $wgAuthenticationTokenVersion = "1";
 ## License and Creative Commons licenses are supported so far.
 $wgRightsUrl = "https://creativecommons.org/licenses/by-sa/4.0/";
 $wgRightsText = "Creative Commons Attribution-ShareAlike License";
-$wgRightsIcon = "$wspIdentity/Part_of_WSP.svg";
+$wgRightsIcon = "$wgResourceBasePath/resources/assets/Part_of_WSP.svg";
 
 # Path to the GNU diff3 utility. Used for conflict resolution.
 $wgDiff3 = "/usr/bin/diff3";
