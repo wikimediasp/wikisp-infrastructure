@@ -5,17 +5,13 @@ echo Actualizando repositorios del sistema
 
 apt update -y
 
-echo Dormiré un ratito...
-sleep 5s
-echo Listo! Actualizando paquetes del sistema
+echo Actualizando paquetes del sistema
 
 apt upgrade -y
 
-echo Dormiré otro ratito...
-sleep 5s
 echo Listo! Descargando nueva versión de MediaWiki 1.37
 
-curl -O https://releases.wikimedia.org/mediawiki/1.37/mediawiki-1.37.0.zip
+curl -O https://releases.wikimedia.org/mediawiki/1.38/mediawiki-1.38.2.zip
 
 echo Sacando del paquete a MediaWiki 1.37
 
@@ -102,17 +98,17 @@ composer install --no-dev
 cd /var/www/wikisp/wiki2/extensions/WSOAuth
 composer install --no-dev
 
-echo Estamos preparados. Por favor, bloquea la base de datos.
+#echo Estamos preparados. Por favor, bloquea la base de datos.
 sleep 5s
 echo Cambiando lugares
 
-mv wiki oldwiki
-mv wiki2 wiki
+#mv wiki oldwiki
+#mv wiki2 wiki
 
-echo Lugares cambiados
-echo Iniciando actualización de base de datos
+#echo Lugares cambiados
+#echo Iniciando actualización de base de datos
 
-php /var/www/wikisp/wiki/maintenance/update.php
+#php /var/www/wikisp/wiki/maintenance/update.php
 
 echo El script de actualización ha finalizado sus labores.
 echo Por favor revisa que todo esté correcto. De otro modo NO elimines oldwiki.
