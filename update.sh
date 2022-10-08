@@ -3,11 +3,11 @@
 echo Script para actualizar MediaWiki en servidores de wikisp.org
 echo Actualizando repositorios del sistema
 
-apt update -y
+sudo apt update -y
 
 echo Actualizando paquetes del sistema
 
-apt upgrade -y
+sudo apt upgrade -y
 
 echo Listo! Descargando nueva versión de MediaWiki 1.38
 
@@ -19,7 +19,7 @@ unzip mediawiki-*.zip
 
 echo Cambiando el nombre de la carpeta y actualizando repositorio de wikisp
 
-mv mediawiki-* wiki2/
+mv mediawiki-* wiki2
 cd mediawiki-config
 git pull
 cd ..
@@ -29,7 +29,8 @@ sleep 5s
 echo Listo! Copiando LocalSettings.php y wsp-config a wiki2. Moviendo wiki2 a wikisp
 
 cp mediawiki-config/juno/wiki/LocalSettings.php wiki2/LocalSettings.php
-cp mediawiki-config/juno/wiki/wsp-config wiki2/wsp-config
+
+sudo -s
 mv wiki2 /var/www/wikisp/
 
 echo Tomaré otro cafecito...
@@ -89,7 +90,7 @@ echo Nos tomamos un pequeño descanso...
 sleep 5s
 echo Usando composer install
 
-cd Flow
+cd /var/www/wikisp/wiki2/extensions/Flow
 composer install --no-dev
 
 cd /var/www/wikisp/wiki2/extensions/PluggableAuth
