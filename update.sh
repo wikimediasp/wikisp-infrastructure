@@ -9,11 +9,11 @@ echo Actualizando paquetes del sistema
 
 apt upgrade -y
 
-echo Listo! Descargando nueva versión de MediaWiki 1.37
+echo Listo! Descargando nueva versión de MediaWiki 1.38
 
-curl -O https://releases.wikimedia.org/mediawiki/1.38/mediawiki-1.38.2.zip
+curl -O https://releases.wikimedia.org/mediawiki/1.38/mediawiki-1.38.4.zip
 
-echo Sacando del paquete a MediaWiki 1.37
+echo Sacando del paquete a MediaWiki 1.38
 
 unzip mediawiki-*.zip
 
@@ -36,54 +36,54 @@ echo Tomaré otro cafecito...
 sleep 5s
 echo Listo! Moviendo wiki2 a wikisp y copiando archivos importantes de wiki
 
-# cp /var/www/wikisp/wiki/wsp-config/private/PrivateSettings.php /var/www/wikisp/wiki2/wsp-config/private/PrivateSettings.php
+cp /var/www/wikisp/wiki/private/PrivateSettings.php /var/www/wikisp/wiki2/private/PrivateSettings.php
 cp /var/www/wikisp/wiki/.htaccess /var/www/wikisp/wiki2/.htaccess
 
 echo Moviéndonos a carpeta extensiones y descargando
 cd /var/www/wikisp/wiki2/extensions
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/CheckUser
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/CheckUser --branch REL1_38
 
 echo Tomaré otro cafecito...
 sleep 5s
 echo Listo! Descargando 
 
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/Translate
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/UserMerge
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/CodeEditor
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/CodeMirror
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/Translate --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/UserMerge --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/CodeEditor --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/CodeMirror --branch REL1_38
 
 echo Nos tomamos un pequeño descanso...
 sleep 5s
 echo Segumos descargando...
 
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/Babel
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/CharInsert
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/intersection
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/TabberNeue
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateStyles
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/Babel --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/CharInsert --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/intersection --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/TabberNeue --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateStyles --branch REL1_38
 
 echo Nos tomamos un pequeño descanso...
 sleep 5s
 echo Seguimos descargando...
 
-git clone https://github.com/sagamusix/MediaWiki-Counter.git Counter
-git clone https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue.git TabberNeue
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/cldr
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/CleanChanges
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/Flow
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/MobileFrontend
+git clone https://github.com/sagamusix/MediaWiki-Counter.git Counter --branch REL1_38
+git clone https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue.git TabberNeue --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/cldr --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/CleanChanges --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/Flow --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/MobileFrontend --branch REL1_38
 
 echo Nos tomamos un pequeño descanso...
 sleep 5s
 echo Seguimos descargando...
 
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/PluggableAuth
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/SecurePoll
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/StaffEdits
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/StaffPowers
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/UniversalLanguageSelector
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/WSOAuth
-git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/ContactPage
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/PluggableAuth --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/SecurePoll --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/StaffEdits --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/StaffPowers --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/UniversalLanguageSelector --branch REL1_38
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/WSOAuth --branch REL1_38
+#git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/ContactPage --branch REL1_38
 
 echo Nos tomamos un pequeño descanso...
 sleep 5s
