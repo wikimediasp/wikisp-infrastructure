@@ -127,9 +127,18 @@ $wgDefaultSkin = "vector";
 
 # Enabled skins.
 # The following skins were automatically enabled:
+
+# Vector
 wfLoadSkin( 'Vector' );
+
+# MinervaNeue
 wfLoadSkin( 'MinervaNeue' );
+
+# Citizen
 wfLoadSkin( 'Citizen' );
+
+$wgCitizenEnableDrawerSiteStats = false;
+$wgCitizenSearchDescriptionSource = 'wikidata';
 
 #For localised sidebar and another stuffs
 $wgHooks['TranslatePostInitGroups'][] = function ( &$list, &$deps, &$autoload ) {
