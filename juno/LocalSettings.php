@@ -131,15 +131,6 @@ wfLoadSkin( 'Vector' );
 wfLoadSkin( 'MinervaNeue' );
 wfLoadSkin( 'Citizen' );
 
-# Extensiones
-require_once( "Extensions.php" );
-
-# Permisos
-require_once( "UserGroups.php" );
-
-# Namespaces
-require_once( "Namespaces.php" );
-
 #For localised sidebar and another stuffs
 $wgHooks['TranslatePostInitGroups'][] = function ( &$list, &$deps, &$autoload ) {
 	$id = 'wiki-sidebar';
@@ -165,6 +156,7 @@ $wgRestrictDisplayTitle = false;
 #$wgDebugComments = true;
 #$wgShowExceptionDetails = true;
 
+# =============================================== Inicio de extensiones =============================================== #
 # Extensiones habilitadas, se pueden añadir usando
 # wfLoadExtension( 'ExtensionName' );
 
@@ -250,6 +242,9 @@ $wgPluggableAuth_EnableLocalProperties = true;
 wfLoadExtension( 'ContactPage' );
 require_once ("$wspConfig/Contact.php");
 
+# Fin de extensiones
+
+# =============================================== Inicio de permisos =============================================== #
 /** Grupos base - Definidos por MediaWiki **/
 # Bureaucrats
 $wgGroupPermissions['bureaucrat']['userrights'] = false;
@@ -299,6 +294,9 @@ $wgGroupPermissions['techcom']['unblockable'] = true;
 $wgGroupPermissions['techcom']['siteadmin'] = true;
 $wgGroupPermissions['techcom']['usermerge'] = true;
 
+# Fin de permisos
+
+# =============================================== Inicio de espacios de nombres =============================================== #
 # Constants for additional namespaces
 define("NS_PROPOSAL", 3000);
 define("NS_PROPOSAL_TALK", 3001);
@@ -333,3 +331,6 @@ $wgNamespacesWithSubpages = [
 	NS_TEMPLATE => true,
 	NS_TEMPLATE_TALK => true
 ];
+
+# Fin de espacios de nombres
+
