@@ -41,6 +41,8 @@ echo Listo! Moviendo wiki2 a wikisp y copiando archivos importantes de wiki
 
 cp /var/www/wikisp/wiki/private/PrivateSettings.php /var/www/wikisp/wiki2/private/PrivateSettings.php
 cp /var/www/wikisp/wiki/.htaccess /var/www/wikisp/wiki2/.htaccess
+cp /var/www/wikisp/wiki/{Part_of_WSP.svg,apple-touch-icon.png,favicon.ico,wikisp-icon.svg,wikisp-logo.svg,
+wikisp-wordmark.svg} /var/www/wikisp/wiki2/resources/assets
 
 echo Moviéndonos a carpeta extensiones y descargando
 cd /var/www/wikisp/wiki2/extensions
@@ -104,17 +106,17 @@ composer install --no-dev
 cd /var/www/wikisp/wiki2/extensions/WSOAuth
 composer install --no-dev
 
-#echo Estamos preparados. Por favor, bloquea la base de datos.
+echo Estamos preparados. Por favor, bloquea la base de datos.
 sleep 5s
 echo Cambiando lugares
 
-#mv /var/www/wikisp/wiki /var/www/wikisp/oldwiki
-#mv /var/www/wikisp/wiki2 /var/www/wikisp/wiki
+mv /var/www/wikisp/wiki /var/www/wikisp/oldwiki
+mv /var/www/wikisp/wiki2 /var/www/wikisp/wiki
 
-#echo Lugares cambiados
-#echo Iniciando actualización de base de datos
+echo Lugares cambiados
+echo Iniciando actualización de base de datos
 
-#php /var/www/wikisp/wiki/maintenance/update.php
+php /var/www/wikisp/wiki/maintenance/update.php
 
 echo El script de actualización ha finalizado sus labores.
 echo Por favor revisa que todo esté correcto. De otro modo NO elimines oldwiki.
