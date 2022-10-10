@@ -164,3 +164,172 @@ $wgRestrictDisplayTitle = false;
 #$wgDebugLogFile = "/var/log/mediawiki/debug-{$wgDBname}.log";
 #$wgDebugComments = true;
 #$wgShowExceptionDetails = true;
+
+# Extensiones habilitadas, se pueden añadir usando
+# wfLoadExtension( 'ExtensionName' );
+
+# Extensiones sin configs adicionales
+wfLoadExtension( 'CategoryTree' );
+wfLoadExtension( 'Cite' );
+wfLoadExtension( 'CodeEditor' );
+wfLoadExtension( 'Gadgets' );
+wfLoadExtension( 'InputBox' );
+wfLoadExtension( 'Interwiki' );
+wfLoadExtension( 'ParserFunctions' );
+wfLoadExtension( 'PdfHandler' );
+wfLoadExtension( 'Poem' );
+wfLoadExtension( 'SyntaxHighlight_GeSHi' );
+wfLoadExtension( 'TemplateData' );
+wfLoadExtension( 'TemplateStyles' );
+wfLoadExtension( 'WikiEditor' );
+wfLoadExtension( 'CategoryTree' );
+wfLoadExtension( 'CheckUser' );
+wfLoadExtension( 'intersection' );
+wfLoadExtension( 'Echo' );
+wfLoadExtension( 'Babel' );
+wfLoadExtension( 'cldr' );
+wfLoadExtension( 'UniversalLanguageSelector' );
+wfLoadExtension ( 'Counter' );
+wfLoadExtension( 'TabberNeue' );
+
+# Flow & ParserFunctions need to be instaled both
+wfLoadExtension( 'Flow' );
+$wgFlowContentFormat = 'html';
+
+# MobileFrontend
+wfLoadExtension( 'MobileFrontend' );
+
+# Scribunto
+wfLoadExtension( 'Scribunto' );
+$wgScribuntoDefaultEngine = 'luastandalone';
+
+# SecurePoll
+wfLoadExtension( 'SecurePoll' );
+
+# StaffEdits
+wfLoadExtension( 'StaffEdits' );
+$wgStaffEditsMessagePrefix = wsp;
+
+# StaffPowers
+wfLoadExtension( 'StaffPowers' );
+$wgStaffPowersStewardGroupName = 'founder';
+
+# WSOAuth
+wfLoadExtension( 'WSOAuth' );
+$wgOAuthUri = 'https://meta.wikimedia.org/w/index.php?title=Special:OAuth';
+
+# CleanChanges
+wfLoadExtension( 'CleanChanges' );
+$wgCCTrailerFilter = true;
+$wgCCUserFilter = false;
+$wgDefaultUserOptions['usenewrc'] = 1;
+
+#LocalisationUpdate
+wfLoadExtension( 'LocalisationUpdate' );
+$wgLocalisationUpdateDirectory = "$IP/cache";
+
+# Translate
+wfLoadExtension( 'Translate' );
+$wgTranslateDocumentationLanguageCode = 'qqq';
+$wgExtraLanguageNames['qqq'] = 'Message documentation'; # No linguistic content. Used for documenting messages
+
+# CodeMirror
+wfLoadExtension( 'CodeMirror' );
+$wgDefaultUserOptions['usecodemirror'] = 1;
+
+# UserMerge
+wfLoadExtension( 'UserMerge' );
+$wgUserMergeProtectedGroups = [ 'founder' ];
+
+# PluggableAuth
+wfLoadExtension( 'PluggableAuth' );
+$wgPluggableAuth_EnableLocalLogin = true;
+$wgPluggableAuth_EnableLocalProperties = true;
+
+# ContactPage
+wfLoadExtension( 'ContactPage' );
+require_once ("$wspConfig/Contact.php");
+
+/** Grupos base - Definidos por MediaWiki **/
+# Bureaucrats
+$wgGroupPermissions['bureaucrat']['userrights'] = false;
+$wgAddGroups['bureaucrat'] = ['sysop','bureaucrat','bot','interface-admin'];
+$wgRemoveGroups['bureaucrat'] = ['sysop','bot','interface-admin'];
+$wgGroupPermissions['bureaucrat']['usermerge'] = true;
+
+# General
+$wgGroupPermissions['*']['createaccount'] = false;
+$wgGroupPermissions['*']['edit'] = false;
+$wgGroupPermissions['*']['autocreateaccount'] = true;
+$wgGroupPermissions['user']['upload'] = false;
+$wgGroupPermissions['user']['translate'] = true;
+$wgGroupPermissions['user']['translate-messagereview'] = true;
+$wgGroupPermissions['user']['translate-groupreview'] = true;
+$wgGroupPermissions['user']['translate-import'] = true;
+
+# Sysops
+$wgGroupPermissions['sysop']['upload'] = true;
+$wgGroupPermissions['sysop']['flow-create-board'] = true;
+$wgGroupPermissions['sysop']['createaccount'] = false;
+$wgGroupPermissions['sysop']['pagetranslation'] = true;
+$wgGroupPermissions['sysop']['translate-manage'] = true;
+$wgGroupPermissions['sysop']['interwiki'] = true;
+$wgGroupPermissions['sysop']['pagelang'] = true;
+
+/** Grupos especiales - Definidos por WikiSP **/
+
+# AdminCom
+$wgGroupPermissions['admincom']['staffedit'] = true;
+$wgAddGroups['admincom'] = ['checkuser', 'suppress', 'nomcom', 'admincom', 'techcom', 'staff', 'electionadmin'];
+$wgRemoveGroups['admincom'] = ['checkuser', 'suppress', 'nomcom', 'techcom', 'staff', 'electionadmin'];
+$wgGroupPermissions['admincom']['unblockable'] = true;
+
+# Electionadmin
+$wgGroupPermissions['electionadmin'] = [];
+$wgGroupPermissions['electionadmin'] ['securepoll-create-poll'] = true;
+
+# Founders
+$wgGroupPermissions['founder']['userrights'] = true;
+
+# TechCom
+$wgGroupPermissions['techcom'] = $wgGroupPermissions['interface-admin'];
+$wgGroupPermissions['techcom'] = $wgGroupPermissions['sysop'];
+$wgGroupPermissions['techcom']['userrights'] = true;
+$wgGroupPermissions['techcom']['unblockable'] = true;
+$wgGroupPermissions['techcom']['siteadmin'] = true;
+$wgGroupPermissions['techcom']['usermerge'] = true;
+
+# Constants for additional namespaces
+define("NS_PROPOSAL", 3000);
+define("NS_PROPOSAL_TALK", 3001);
+define("NS_PROGRAM", 3002);
+define("NS_PROGRAM_TALK", 3003);
+define("NS_EVENT", 3004);
+define("NS_EVENT_TALK", 3005);
+define("NS_CONFERENCE", 3006);
+define("NS_CONFERENCE_TALK", 3007);
+
+# ExtraNamespaces
+$wgExtraNamespaces[NS_PROPOSAL] = "Propuestas";
+$wgExtraNamespaces[NS_PROPOSAL_TALK] = "Propuestas_discusión";
+$wgExtraNamespaces[NS_PROGRAM] = "Programas";
+$wgExtraNamespaces[NS_PROGRAM_TALK] = "Programas_discusión";
+$wgExtraNamespaces[NS_EVENT] = "Eventos";
+$wgExtraNamespaces[NS_EVENT_TALK] = "Eventos_discusión";
+$wgExtraNamespaces[NS_CONFERENCE] = "Conferencias";
+$wgExtraNamespaces[NS_CONFERENCE_TALK] = "Conferencias_discusión";
+
+# NamespacesWithSubpages
+$wgNamespacesWithSubpages = [
+	NS_MAIN => true,
+	NS_PROPOSAL => true,
+	NS_PROPOSAL_TALK => true,
+	NS_PROGRAM => true,
+	NS_PROGRAM_TALK => true,
+	NS_EVENT => true,
+	NS_EVENT_TALK => true,
+	NS_CONFERENCE=> true,
+	NS_CONFERENCE_TALK => true,
+	NS_TEMPLATE => true,
+	NS_TEMPLATE_TALK => true
+];
