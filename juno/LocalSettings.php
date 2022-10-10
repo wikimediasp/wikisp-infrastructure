@@ -14,7 +14,7 @@
 # $wgDisableOutputCompression = true;
 
 $wgSitename = "Wikimedia Small Projects";
-$wgMetaNamespace = "Wikimedia";
+$wgMetaNamespace = "Internal";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -116,10 +116,8 @@ $wgAuthenticationTokenVersion = "1";
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
 ## License and Creative Commons licenses are supported so far.
-$wgRightsUrl = "https://creativecommons.org/licenses/by-sa/4.0/";
-$wgRightsText = "Creative Commons Attribution-ShareAlike License";
 $wgRightsIcon = "$wgResourceBasePath/resources/assets/Part_of_WSP.svg";
-
+$wgRightsUrl = 'https://wikisp.org';
 # Path to the GNU diff3 utility. Used for conflict resolution.
 $wgDiff3 = "/usr/bin/diff3";
 
@@ -131,6 +129,7 @@ $wgDefaultSkin = "vector";
 # The following skins were automatically enabled:
 wfLoadSkin( 'Vector' );
 wfLoadSkin( 'MinervaNeue' );
+wfLoadSkin( 'Citizen' );
 
 # Extensiones
 require_once( "Extensions.php" );
