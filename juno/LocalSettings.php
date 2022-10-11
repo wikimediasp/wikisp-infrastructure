@@ -178,20 +178,24 @@ wfLoadExtension( 'Poem' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TemplateStyles' );
+wfLoadExtension('TemplateStylesExtender');
 wfLoadExtension( 'WikiEditor' );
 wfLoadExtension( 'CategoryTree' );
-wfLoadExtension( 'CheckUser' );
+wfLoadExtension( 'CharInsert');
 wfLoadExtension( 'intersection' );
 wfLoadExtension( 'Echo' );
 wfLoadExtension( 'Babel' );
 wfLoadExtension( 'cldr' );
 wfLoadExtension( 'UniversalLanguageSelector' );
-wfLoadExtension ( 'Counter' );
+wfLoadExtension( 'ShortDescription' );
+#wfLoadExtension ( 'Counter' );
 wfLoadExtension( 'TabberNeue' );
 
 # Flow & ParserFunctions need to be instaled both
 wfLoadExtension( 'Flow' );
 $wgFlowContentFormat = 'html';
+
+
 
 # MobileFrontend
 wfLoadExtension( 'MobileFrontend' );
@@ -203,17 +207,12 @@ $wgScribuntoDefaultEngine = 'luastandalone';
 # SecurePoll
 wfLoadExtension( 'SecurePoll' );
 
-# StaffEdits
-wfLoadExtension( 'StaffEdits' );
-$wgStaffEditsMessagePrefix = wsp;
-
-# StaffPowers
-wfLoadExtension( 'StaffPowers' );
-$wgStaffPowersStewardGroupName = 'founder';
+# PluggableAuth
+wfLoadExtension( 'PluggableAuth' );
+$wgPluggableAuth_EnableLocalProperties = true;
 
 # WSOAuth
 wfLoadExtension( 'WSOAuth' );
-$wgOAuthUri = 'https://meta.wikimedia.org/w/index.php?title=Special:OAuth';
 
 # CleanChanges
 wfLoadExtension( 'CleanChanges' );
@@ -237,15 +236,6 @@ $wgDefaultUserOptions['usecodemirror'] = 1;
 # UserMerge
 wfLoadExtension( 'UserMerge' );
 $wgUserMergeProtectedGroups = [ 'founder' ];
-
-# PluggableAuth
-wfLoadExtension( 'PluggableAuth' );
-$wgPluggableAuth_EnableLocalLogin = true;
-$wgPluggableAuth_EnableLocalProperties = true;
-
-# ContactPage
-wfLoadExtension( 'ContactPage' );
-require_once ("$wspConfig/Contact.php");
 
 # Fin de extensiones
 
@@ -279,25 +269,32 @@ $wgGroupPermissions['sysop']['pagelang'] = true;
 /** Grupos especiales - Definidos por WikiSP **/
 
 # AdminCom
-$wgGroupPermissions['admincom']['staffedit'] = true;
-$wgAddGroups['admincom'] = ['checkuser', 'suppress', 'nomcom', 'admincom', 'techcom', 'staff', 'electionadmin'];
-$wgRemoveGroups['admincom'] = ['checkuser', 'suppress', 'nomcom', 'techcom', 'staff', 'electionadmin'];
-$wgGroupPermissions['admincom']['unblockable'] = true;
-
-# Electionadmin
-$wgGroupPermissions['electionadmin'] = [];
-$wgGroupPermissions['electionadmin'] ['securepoll-create-poll'] = true;
+$wgAddGroups['admincom'] = ['suppress', 'nomcom', 'admincom', 'techcom', 'electionadmin'];
+$wgRemoveGroups['admincom'] = ['suppress', 'nomcom', 'techcom', 'electionadmin'];
 
 # Founders
 $wgGroupPermissions['founder']['userrights'] = true;
 
 # TechCom
-$wgGroupPermissions['techcom'] = $wgGroupPermissions['interface-admin'];
-$wgGroupPermissions['techcom'] = $wgGroupPermissions['sysop'];
-$wgGroupPermissions['techcom']['userrights'] = true;
-$wgGroupPermissions['techcom']['unblockable'] = true;
-$wgGroupPermissions['techcom']['siteadmin'] = true;
-$wgGroupPermissions['techcom']['usermerge'] = true;
+$wgGroupPermissions['techcom'] = array_merge(
+	$wgGroupPermissions['techcom'],
+	$wgGroupPermissions['sysop'],
+	$wgGroupPermissions['interface-admin'],
+	[
+		'siteadmin' => true,
+		'usermerge' => true
+	]
+);
+
+$wgGroupsAddToSelf['techcom'][] = 'suppress';
+$wgGroupsRemoveFromSelf['techcom'][] = 'suppress';
+
+# NomCom
+$wgGroupPermissions['nomcom']['securepoll-create-poll'] = true;
+$wgGroupPermissions['electionadmin'] = [];
+
+$wgGroupsAddToSelf['nomcom'][] = 'electionadmin';
+$wgGroupsRemoveFromSelf['nomcom'][] = 'electionadmin';
 
 # Fin de permisos
 
