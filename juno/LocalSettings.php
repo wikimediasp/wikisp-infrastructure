@@ -5,9 +5,6 @@
     Orden de archivos
     - LocalSettings.php # Este archivo
     - private/PrivateSettings.php # Información sensible
-    - Extensions.php # Extensiones
-    - UserGroups.php # Grupos de usuarios
-    - Namespaces.php # Espacios de nombres
 **/
 
 ## Uncomment this to disable output compression
