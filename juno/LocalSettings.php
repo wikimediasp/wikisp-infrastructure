@@ -282,7 +282,7 @@ $wgGroupPermissions['techcom'] = array_merge(
 	$wgGroupPermissions['interface-admin'],
 	[
 		'siteadmin' => true,
-		'usermerge' => true
+		'usermerge' => true,
 	]
 );
 
