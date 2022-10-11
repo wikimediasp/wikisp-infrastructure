@@ -265,6 +265,7 @@ $wgGroupPermissions['sysop']['pagetranslation'] = true;
 $wgGroupPermissions['sysop']['translate-manage'] = true;
 $wgGroupPermissions['sysop']['interwiki'] = true;
 $wgGroupPermissions['sysop']['pagelang'] = true;
+$wgGroupPermissions['sysop']['manage-all-push-subscriptions'] = true;
 
 /** Grupos especiales - Definidos por WikiSP **/
 
@@ -276,15 +277,17 @@ $wgRemoveGroups['admincom'] = ['suppress', 'nomcom', 'techcom', 'electionadmin']
 $wgGroupPermissions['founder']['userrights'] = true;
 
 # TechCom
+$wgGroupPermissions['techcom'] = $wgGroupPermissions['sysop'];
+
 $wgGroupPermissions['techcom'] = array_merge(
 	$wgGroupPermissions['techcom'],
-	$wgGroupPermissions['sysop'],
-	$wgGroupPermissions['interface-admin'],
-	[
-		'siteadmin' => true,
-		'usermerge' => true,
-	]
+	$wgGroupPermissions['interface-admin']
 );
+
+$wgGroupPermissions['techcom'] = array_merge( $wgGroupPermissions['techcom'], [
+	'siteadmin' => true,
+	'usermerge' => true
+] );
 
 $wgGroupsAddToSelf['techcom'][] = 'suppress';
 $wgGroupsRemoveFromSelf['techcom'][] = 'suppress';
@@ -295,6 +298,9 @@ $wgGroupPermissions['electionadmin'] = [];
 
 $wgGroupsAddToSelf['nomcom'][] = 'electionadmin';
 $wgGroupsRemoveFromSelf['nomcom'][] = 'electionadmin';
+
+# Eliminar push-subscription-manager
+unset( $wgGroupPermissions['push-subscription-manager'] );
 
 # Fin de permisos
 
