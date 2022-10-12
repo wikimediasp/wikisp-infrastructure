@@ -20,17 +20,17 @@ unzip mediawiki-*.zip
 echo Cambiando el nombre de la carpeta y actualizando repositorio de wikisp
 
 mv mediawiki-1.38.4 wiki2
-cd mediawiki-config
+cd infrastructure
 git pull
 cd ..
 
 echo Tomaré un cafecito...
 sleep 5s
 echo Listo! Copiando LocalSettings.php y wsp-config a wiki2. Moviendo wiki2 a wikisp
-cp mediawiki-config/juno/LocalSettings.php wiki2/LocalSettings.php
-cp mediawiki-config/juno/Extensions.php wiki2/Extensions.php
-cp mediawiki-config/juno/UserGroups.php wiki2/UserGroups.php
-cp mediawiki-config/juno/Namespaces.php wiki2/Namespaces.php
+cp infrastructure/juno/LocalSettings.php wiki2/LocalSettings.php
+cp infrastructure/juno/Extensions.php wiki2/Extensions.php
+cp infrastructure/juno/UserGroups.php wiki2/UserGroups.php
+cp infrastructure/juno/Namespaces.php wiki2/Namespaces.php
 
 sudo -s
 mv wiki2 /var/www/wikisp/wiki2
