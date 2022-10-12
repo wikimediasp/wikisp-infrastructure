@@ -318,8 +318,8 @@ define("NS_CONFERENCE_TALK", 3007);
 # ExtraNamespaces
 $wgExtraNamespaces[NS_PROPOSAL] = "Propuestas";
 $wgExtraNamespaces[NS_PROPOSAL_TALK] = "Propuestas_discusión";
-$wgExtraNamespaces[NS_PROGRAM] = "Programas";
-$wgExtraNamespaces[NS_PROGRAM_TALK] = "Programas_discusión";
+$wgExtraNamespaces[NS_PROGRAM] = "Portal";
+$wgExtraNamespaces[NS_PROGRAM_TALK] = "Portal_discusión";
 $wgExtraNamespaces[NS_EVENT] = "Eventos";
 $wgExtraNamespaces[NS_EVENT_TALK] = "Eventos_discusión";
 $wgExtraNamespaces[NS_CONFERENCE] = "Conferencias";
