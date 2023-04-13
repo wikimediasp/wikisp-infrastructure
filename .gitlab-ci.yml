@@ -1,0 +1,10 @@
+stages:          # List of stages for jobs, and their order of execution
+  -  test
+
+code-quality:lint-php:
+    stage: test
+    image: overtrue/phplint:latest
+    variables:
+        INPUT_PATH: "./"
+        INPUT_OPTIONS: "-c .phplint.yml"
+    script: echo '' #prevents ci yml parse error
