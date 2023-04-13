@@ -5,4 +5,4 @@ test:
   image: docker-registry.wikimedia.org/php7.4-cli:latest
   stage: test
   script:
-    - phplint
+    - phpunit
