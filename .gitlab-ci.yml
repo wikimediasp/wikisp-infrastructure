@@ -1,10 +1,9 @@
-stages:          # List of stages for jobs, and their order of execution
-  -  test
+stages:
+  - test
 
-code-quality:lint-php:
-    stage: test
-    image: overtrue/phplint:latest
-    variables:
-        INPUT_PATH: "./"
-        INPUT_OPTIONS: "-c .phplint.yml"
-    script: echo '' #prevents ci yml parse error
+test:
+  image: docker-registry.wikimedia.org/php7.4-cli:latest
+  stage: test
+  script:
+    - docker pull overtrue/phplint:latest
+    - phplint
