@@ -199,6 +199,7 @@ wfLoadExtension( 'ShortDescription' );
 wfLoadExtension( 'TabberNeue' );
 wfLoadExtension ( 'Math' );
 wfLoadExtension( 'FontAwesome' );
+wfLoadExtension( 'ExternalContent' );
 
 # MobileFrontend
 wfLoadExtension( 'MobileFrontend' );
