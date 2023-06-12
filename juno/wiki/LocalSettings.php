@@ -35,6 +35,7 @@ $wspPrivate = "$IP/private";
 ## or else you'll overwrite your logo when you upgrade!
 $wgLogos = [ 
     'svg' => "$wgResourceBasePath/resources/assets/wikisp-icon.svg",
+    'icon' => "$wgResourceBasePath/resources/assets/wikisp-icon.svg",
     'wordmark' => [
 	 'src' => "$wgResourceBasePath/resources/assets/wikisp-wordmark.svg",
          'width' => 200,
@@ -73,8 +74,8 @@ $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 $wgSharedTables[] = "actor";
 
 ## Shared memory settings
-$wgMainCacheType = CACHE_MEMCACHED;
-$wgMemCachedServers = [ '127.0.0.1:11211' ];
+$wgMainCacheType = CACHE_ACCEL; #2022-11-21, TheresNoTime
+#$wgMemCachedServers = [ '127.0.0.1:11211' ];
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
@@ -157,10 +158,19 @@ $wgPageLanguageUseDB = true;
 $wgAllowDisplayTitle = true;
 $wgRestrictDisplayTitle = false;
 
+# PageTranslationLanguageList
+#$wgPageTranslationLanguageList = 'sidebar-only';
+
+# wgRememberMe
+$wgRememberMe = 'always';
+
+# wgHiddenPrefs
+$wgHiddenPrefs[] = 'realname';
+
 #Debug - cuando se requiera, se descomenta
-#$wgDebugLogFile = "/var/log/mediawiki/debug-{$wgDBname}.log";
-#$wgDebugComments = true;
-#$wgShowExceptionDetails = true;
+$wgDebugLogFile = "/var/log/mediawiki/debug-{$wgDBname}.log";
+$wgDebugComments = true;
+$wgShowExceptionDetails = true;
 
 # =============================================== Inicio de extensiones =============================================== #
 # Extensiones habilitadas, se pueden añadir usando
@@ -174,13 +184,11 @@ wfLoadExtension( 'Gadgets' );
 wfLoadExtension( 'InputBox' );
 wfLoadExtension( 'Interwiki' );
 wfLoadExtension( 'ParserFunctions' );
-wfLoadExtension( 'Poem' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TemplateStyles' );
 wfLoadExtension('TemplateStylesExtender');
 wfLoadExtension( 'WikiEditor' );
-wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'CharInsert');
 wfLoadExtension( 'intersection' );
 wfLoadExtension( 'Echo' );
@@ -188,14 +196,9 @@ wfLoadExtension( 'Babel' );
 wfLoadExtension( 'cldr' );
 wfLoadExtension( 'UniversalLanguageSelector' );
 wfLoadExtension( 'ShortDescription' );
-#wfLoadExtension ( 'Counter' );
 wfLoadExtension( 'TabberNeue' );
-
-# Flow & ParserFunctions need to be instaled both
-wfLoadExtension( 'Flow' );
-$wgFlowContentFormat = 'html';
-
-
+wfLoadExtension ( 'Math' );
+wfLoadExtension( 'FontAwesome' );
 
 # MobileFrontend
 wfLoadExtension( 'MobileFrontend' );
@@ -216,13 +219,10 @@ wfLoadExtension( 'WSOAuth' );
 
 # CleanChanges
 wfLoadExtension( 'CleanChanges' );
-$wgCCTrailerFilter = true;
+$wgCCTrailerFilter = false;
 $wgCCUserFilter = false;
+$wgCCFiltersOnly = false;
 $wgDefaultUserOptions['usenewrc'] = 1;
-
-#LocalisationUpdate
-wfLoadExtension( 'LocalisationUpdate' );
-$wgLocalisationUpdateDirectory = "$IP/cache";
 
 # Translate
 wfLoadExtension( 'Translate' );
@@ -234,18 +234,18 @@ wfLoadExtension( 'CodeMirror' );
 $wgDefaultUserOptions['usecodemirror'] = 1;
 
 # UserMerge
-wfLoadExtension( 'UserMerge' );
-$wgUserMergeProtectedGroups = [ 'founder' ];
+#wfLoadExtension( 'UserMerge' ); # Presenta fallas, desactivada.
+
+# Counter
+#wfLoadExtension( 'Counter' );
 
 # Fin de extensiones
 
 # =============================================== Inicio de permisos =============================================== #
 /** Grupos base - Definidos por MediaWiki **/
 # Bureaucrats
-$wgGroupPermissions['bureaucrat']['userrights'] = false;
-$wgAddGroups['bureaucrat'] = ['sysop','bureaucrat','bot','interface-admin'];
-$wgRemoveGroups['bureaucrat'] = ['sysop','bot','interface-admin'];
-$wgGroupPermissions['bureaucrat']['usermerge'] = true;
+$wgGroupPermissions['bureaucrat']['userrights'] = true;
+$wgGroupPermissions['bureaucrat']['usermerge'] = false; # Tiene errores
 
 # General
 $wgGroupPermissions['*']['createaccount'] = false;
@@ -260,7 +260,6 @@ $wgGroupPermissions['user']['translate-import'] = true;
 # Sysops
 $wgGroupPermissions['sysop']['upload'] = true;
 $wgGroupPermissions['sysop']['flow-create-board'] = true;
-$wgGroupPermissions['sysop']['createaccount'] = false;
 $wgGroupPermissions['sysop']['pagetranslation'] = true;
 $wgGroupPermissions['sysop']['translate-manage'] = true;
 $wgGroupPermissions['sysop']['interwiki'] = true;
@@ -269,33 +268,9 @@ $wgGroupPermissions['sysop']['manage-all-push-subscriptions'] = true;
 
 /** Grupos especiales - Definidos por WikiSP **/
 
-# AdminCom
-$wgAddGroups['admincom'] = ['suppress', 'nomcom', 'admincom', 'techcom', 'electionadmin'];
-$wgRemoveGroups['admincom'] = ['suppress', 'nomcom', 'techcom', 'electionadmin'];
-
-# Founders
-$wgGroupPermissions['founder']['userrights'] = true;
-
-# TechCom
-$wgGroupPermissions['techcom'] = $wgGroupPermissions['sysop'];
-
-$wgGroupPermissions['techcom'] = array_merge(
-	$wgGroupPermissions['techcom'],
-	$wgGroupPermissions['interface-admin']
-);
-
-$wgGroupPermissions['techcom'] = array_merge( $wgGroupPermissions['techcom'], [
-	'siteadmin' => true,
-	'usermerge' => true
-] );
-
-$wgGroupsAddToSelf['techcom'][] = 'suppress';
-$wgGroupsRemoveFromSelf['techcom'][] = 'suppress';
-
 # NomCom
 $wgGroupPermissions['nomcom']['securepoll-create-poll'] = true;
 $wgGroupPermissions['electionadmin'] = [];
-
 $wgGroupsAddToSelf['nomcom'][] = 'electionadmin';
 $wgGroupsRemoveFromSelf['nomcom'][] = 'electionadmin';
 
@@ -308,34 +283,26 @@ unset( $wgGroupPermissions['push-subscription-manager'] );
 # Constants for additional namespaces
 define("NS_PROPOSAL", 3000);
 define("NS_PROPOSAL_TALK", 3001);
-define("NS_PROGRAM", 3002);
-define("NS_PROGRAM_TALK", 3003);
-define("NS_EVENT", 3004);
-define("NS_EVENT_TALK", 3005);
-define("NS_CONFERENCE", 3006);
-define("NS_CONFERENCE_TALK", 3007);
+define("NS_GRANTS", 3002);
+define("NS_GRANTS_TALK", 3003);
+define("NS_RESOLUTION", 3004);
+define("NS_RESOLUTION_TALK", 3005);
 
 # ExtraNamespaces
 $wgExtraNamespaces[NS_PROPOSAL] = "Propuestas";
 $wgExtraNamespaces[NS_PROPOSAL_TALK] = "Propuestas_discusión";
-$wgExtraNamespaces[NS_PROGRAM] = "Portal";
-$wgExtraNamespaces[NS_PROGRAM_TALK] = "Portal_discusión";
-$wgExtraNamespaces[NS_EVENT] = "Eventos";
-$wgExtraNamespaces[NS_EVENT_TALK] = "Eventos_discusión";
-$wgExtraNamespaces[NS_CONFERENCE] = "Conferencias";
-$wgExtraNamespaces[NS_CONFERENCE_TALK] = "Conferencias_discusión";
+$wgExtraNamespaces[NS_GRANTS] = "Grants";
+$wgExtraNamespaces[NS_GRANTS_TALK] = "Grants_discusión";
+$wgExtraNamespaces[NS_RESOLUTION] = "Resolución";
+$wgExtraNamespaces[NS_RESOLUTION_TALK] = "Resolución_discusión";
 
 # NamespacesWithSubpages
 $wgNamespacesWithSubpages = [
 	NS_MAIN => true,
 	NS_PROPOSAL => true,
 	NS_PROPOSAL_TALK => true,
-	NS_PROGRAM => true,
-	NS_PROGRAM_TALK => true,
-	NS_EVENT => true,
-	NS_EVENT_TALK => true,
-	NS_CONFERENCE=> true,
-	NS_CONFERENCE_TALK => true,
+	NS_GRANTS => true,
+	NS_GRANTS_TALK => true,
 	NS_TEMPLATE => true,
 	NS_TEMPLATE_TALK => true
 ];
