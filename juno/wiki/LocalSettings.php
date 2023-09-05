@@ -165,13 +165,13 @@ $wgRememberMe = 'always';
 $wgHiddenPrefs[] = 'realname';
 
 #Debug - cuando se requiera, se descomenta
-$wgDebugLogFile = "/var/log/mediawiki/debug-{$wgDBname}.log";
-$wgDebugComments = true;
-$wgShowExceptionDetails = true;
+#$wgDebugLogFile = "/var/log/mediawiki/debug-{$wgDBname}.log";
+#$wgDebugComments = true;
+#$wgShowExceptionDetails = true;
 
-# =============================================== Inicio de extensiones =============================================== #
-# Extensiones habilitadas, se pueden añadir usando
-# wfLoadExtension( 'ExtensionName' );
+## Extensiones
+## Nuevas extensiones se pueden añadir usando
+## wfLoadExtension( 'ExtensionName' );
 
 # CategoryTree
 wfLoadExtension( 'CategoryTree' );
@@ -179,73 +179,8 @@ wfLoadExtension( 'CategoryTree' );
 # Cite
 wfLoadExtension( 'Cite' );
 
-# CodeEditor
-wfLoadExtension( 'CodeEditor' );
-
-# Gadgets
-wfLoadExtension( 'Gadgets' );
-
-# InputBox
-wfLoadExtension( 'InputBox' );
-
-# Interwiki
-wfLoadExtension( 'Interwiki' );
-
-# ParserFunctions
-wfLoadExtension( 'ParserFunctions' );
-
-# SyntaxHighlight_GeSHi
-wfLoadExtension( 'SyntaxHighlight_GeSHi' );
-
-# TemplateData
-wfLoadExtension( 'TemplateData' );
-
-# TemplateStyles
-wfLoadExtension( 'TemplateStyles' );
-
-# TemplateStylesExtender
-wfLoadExtension('TemplateStylesExtender');
-
-# WikiEditor
-wfLoadExtension( 'WikiEditor' );
-
-# intersection
-wfLoadExtension( 'intersection' );
-
-# Echo
-wfLoadExtension( 'Echo' );
-
-# CLDR
+# cldr
 wfLoadExtension( 'cldr' );
-
-# UniversalLanguageSelector
-wfLoadExtension( 'UniversalLanguageSelector' );
-
-# ShortDescription
-wfLoadExtension( 'ShortDescription' );
-
-# TabberNeue
-wfLoadExtension( 'TabberNeue' );
-
-# Math
-wfLoadExtension ( 'Math' );
-
-# FontAwesome
-wfLoadExtension( 'FontAwesome' );
-
-# Scribunto
-wfLoadExtension( 'Scribunto' );
-$wgScribuntoDefaultEngine = 'luastandalone';
-
-# SecurePoll
-wfLoadExtension( 'SecurePoll' );
-
-# PluggableAuth
-wfLoadExtension( 'PluggableAuth' );
-$wgPluggableAuth_EnableLocalProperties = true;
-
-# WSOAuth
-wfLoadExtension( 'WSOAuth' );
 
 # CleanChanges
 wfLoadExtension( 'CleanChanges' );
@@ -254,28 +189,126 @@ $wgCCUserFilter = false;
 $wgCCFiltersOnly = false;
 $wgDefaultUserOptions['usenewrc'] = 1;
 
-# Translate
-wfLoadExtension( 'Translate' );
-$wgTranslateDocumentationLanguageCode = 'qqq';
-$wgExtraLanguageNames['qqq'] = 'Message documentation'; # No linguistic content. Used for documenting messages
+# CodeEditor
+wfLoadExtension( 'CodeEditor' );
 
 # CodeMirror
 wfLoadExtension( 'CodeMirror' );
 $wgDefaultUserOptions['usecodemirror'] = 1;
 
-# UserMerge
-#wfLoadExtension( 'UserMerge' ); # Presenta fallas, desactivada.
-
 # Counter
 #wfLoadExtension( 'Counter' );
 
+# DiscussionTools
+wfLoadExtension ( 'DiscussionTools' );
+$wgDiscussionToolsEnable = true;
+
+# EasyTimeline
+wfLoadExtension ( 'timeline' );
+putenv("GDFONTPATH=/usr/share/fonts/truetype/freefont");
+
+# Echo
+wfLoadExtension( 'Echo' );
+
+# FontAwesome
+wfLoadExtension( 'FontAwesome' );
+
+# Gadgets
+wfLoadExtension( 'Gadgets' );
+
+# InputBox
+wfLoadExtension( 'InputBox' );
+
+# Intersection
+wfLoadExtension( 'intersection' );
+
+# Interwiki
+wfLoadExtension( 'Interwiki' );
+
+# Math
+wfLoadExtension( 'Math' );
+
+# Linter
+wfLoadExtension ( 'Linter' );
+$wgParsoidSettings = [
+    'linting' => true
+];
+
+# ParserFunctions
+wfLoadExtension( 'ParserFunctions' );
+
+# PluggableAuth
+wfLoadExtension( 'PluggableAuth' );
+$wgPluggableAuth_EnableLocalProperties = true;
+
+# Scribunto
+wfLoadExtension( 'Scribunto' );
+$wgScribuntoDefaultEngine = 'luastandalone';
+
+# SecurePoll
+wfLoadExtension( 'SecurePoll' );
+
+# ShortDescription
+wfLoadExtension( 'ShortDescription' );
+
+# SyntaxHighlight GeSHi
+wfLoadExtension( 'SyntaxHighlight_GeSHi' );
+
+# TabberNeue
+wfLoadExtension( 'TabberNeue' );
+
+# TemplateData
+wfLoadExtension( 'TemplateData' );
+
+# TemplateStyles
+wfLoadExtension( 'TemplateStyles' );
+
+# TemplateStylesExtender
+wfLoadExtension( 'TemplateStylesExtender' );
+
+# Thanks
+wfLoadExtension ( 'Thanks' );
+$wgThanksConfirmationRequired = false;
+
+# Translate
+wfLoadExtension( 'Translate' );
+$wgTranslateDocumentationLanguageCode = 'qqq';
+$wgExtraLanguageNames['qqq'] = 'Message documentation';
+
+# UniversalLanguageSelector
+wfLoadExtension( 'UniversalLanguageSelector' );
+
+# VisualEditor
+wfLoadExtension ( 'VisualEditor' );
+$wgVisualEditorEnableWikitext = true;
+$wgDefaultUserOptions['visualeditor-autodisable'] = true;
+$wgDefaultUserOptions['visualeditor-enable'] = 1;
+$wgVisualEditorAvailableNamespaces = [
+    'Project' => true,
+    'File' => false,
+    'Propuestas' => true,
+    'Grants' => true
+];
+
+# WikiEditor
+wfLoadExtension( 'WikiEditor' );
+$wgWikiEditorRealtimePreview = true;
+
+# WSOAuth
+wfLoadExtension( 'WSOAuth' );
+
+# Thanks
+wfLoadExtension ( 'Thanks' );
+$wgThanksConfirmationRequired = false;
+
 # Fin de extensiones
 
-# =============================================== Inicio de permisos =============================================== #
+## Permisos
+
 /** Grupos base - Definidos por MediaWiki **/
+
 # Bureaucrats
 $wgGroupPermissions['bureaucrat']['userrights'] = true;
-$wgGroupPermissions['bureaucrat']['usermerge'] = false; # Tiene errores
 
 # General
 $wgGroupPermissions['*']['createaccount'] = false;
@@ -289,7 +322,6 @@ $wgGroupPermissions['user']['translate-import'] = true;
 
 # Sysops
 $wgGroupPermissions['sysop']['upload'] = true;
-$wgGroupPermissions['sysop']['flow-create-board'] = true;
 $wgGroupPermissions['sysop']['pagetranslation'] = true;
 $wgGroupPermissions['sysop']['translate-manage'] = true;
 $wgGroupPermissions['sysop']['interwiki'] = true;
@@ -304,12 +336,31 @@ $wgGroupPermissions['electionadmin'] = [];
 $wgGroupsAddToSelf['nomcom'][] = 'electionadmin';
 $wgGroupsRemoveFromSelf['nomcom'][] = 'electionadmin';
 
+# Miembros
+$wgGroupPermissions['member']['autoconfirmed'] = true;
+$wgGroupPermissions['member']['editsemiprotected'] = true;
+$wgGroupPermissions['member']['autopatrol'] = true;
+
 # Eliminar push-subscription-manager
 unset( $wgGroupPermissions['push-subscription-manager'] );
+unset( $wgRevokePermissions['push-subscription-manager'] );
+unset( $wgAddGroups['push-subscription-manager'] );
+unset( $wgRemoveGroups['push-subscription-manager'] );
+unset( $wgGroupsAddToSelf['push-subscription-manager'] );
+unset( $wgGroupsRemoveFromSelf['push-subscription-manager'] );
+
+# Eliminar autoconfirmados
+unset( $wgGroupPermissions['autoconfirmed'] );
+unset( $wgRevokePermissions['autoconfirmed'] );
+unset( $wgAddGroups['autoconfirmed'] );
+unset( $wgRemoveGroups['autoconfirmed'] );
+unset( $wgGroupsAddToSelf['autoconfirmed'] );
+unset( $wgGroupsRemoveFromSelf['autoconfirmed'] );
 
 # Fin de permisos
 
-# =============================================== Inicio de espacios de nombres =============================================== #
+## Espacios de nombres adicionales
+
 # Constants for additional namespaces
 define("NS_PROPOSAL", 3000);
 define("NS_PROPOSAL_TALK", 3001);
@@ -326,9 +377,18 @@ $wgExtraNamespaces[NS_GRANTS_TALK] = "Grants_discusión";
 $wgExtraNamespaces[NS_RESOLUTION] = "Resolución";
 $wgExtraNamespaces[NS_RESOLUTION_TALK] = "Resolución_discusión";
 
+# NamespaceProtection
+$wgNamespaceProtection[NS_RESOLUTION] = ['editsemiprotected'];
+#$wgNamespaceProtection[NS_MAIN] = ['editsemiprotected'];
+#$wgNamespaceProtection[NS_PROJECT] = ['editsemiprotected'];
+$wgNamespaceProtection[NS_GRANTS] = ['editsemiprotected'];
+$wgNamespaceProtection[NS_HELP] = ['everyone']; # Sin uso 
+$wgNamespaceProtection[NS_HELP_TALK] = ['everyone']; # Idem
+
 # NamespacesWithSubpages
 $wgNamespacesWithSubpages = [
 	NS_MAIN => true,
+        NS_PROJECT => true,
 	NS_PROPOSAL => true,
 	NS_PROPOSAL_TALK => true,
 	NS_GRANTS => true,
@@ -336,5 +396,12 @@ $wgNamespacesWithSubpages = [
 	NS_TEMPLATE => true,
 	NS_TEMPLATE_TALK => true
 ];
+
+# Superprotect to legal pages
+$wgRestrictionLevels[] = 'superprotect';
+$wgGroupPermissions['suppress']['superprotect'] = true;
+
+# ExtraSignatureNamespaces
+$wgExtraSignatureNamespaces = [ NS_PROPOSAL, NS_GRANTS, NS_RESOLUTION ];
 
 # Fin de espacios de nombres
