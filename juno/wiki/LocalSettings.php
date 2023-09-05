@@ -121,16 +121,13 @@ $wgDiff3 = "/usr/bin/diff3";
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
-$wgDefaultSkin = "vector";
+$wgDefaultSkin = "citizen";
 
 # Enabled skins.
 # The following skins were automatically enabled:
 
 # Vector
 wfLoadSkin( 'Vector' );
-
-# MinervaNeue
-wfLoadSkin( 'MinervaNeue' );
 
 # Citizen
 wfLoadSkin( 'Citizen' );
@@ -176,33 +173,65 @@ $wgShowExceptionDetails = true;
 # Extensiones habilitadas, se pueden añadir usando
 # wfLoadExtension( 'ExtensionName' );
 
-# Extensiones sin configs adicionales
+# CategoryTree
 wfLoadExtension( 'CategoryTree' );
-wfLoadExtension( 'Cite' );
-wfLoadExtension( 'CodeEditor' );
-wfLoadExtension( 'Gadgets' );
-wfLoadExtension( 'InputBox' );
-wfLoadExtension( 'Interwiki' );
-wfLoadExtension( 'ParserFunctions' );
-wfLoadExtension( 'SyntaxHighlight_GeSHi' );
-wfLoadExtension( 'TemplateData' );
-wfLoadExtension( 'TemplateStyles' );
-wfLoadExtension('TemplateStylesExtender');
-wfLoadExtension( 'WikiEditor' );
-wfLoadExtension( 'CharInsert');
-wfLoadExtension( 'intersection' );
-wfLoadExtension( 'Echo' );
-wfLoadExtension( 'Babel' );
-wfLoadExtension( 'cldr' );
-wfLoadExtension( 'UniversalLanguageSelector' );
-wfLoadExtension( 'ShortDescription' );
-wfLoadExtension( 'TabberNeue' );
-wfLoadExtension ( 'Math' );
-wfLoadExtension( 'FontAwesome' );
-wfLoadExtension( 'ExternalContent' );
 
-# MobileFrontend
-wfLoadExtension( 'MobileFrontend' );
+# Cite
+wfLoadExtension( 'Cite' );
+
+# CodeEditor
+wfLoadExtension( 'CodeEditor' );
+
+# Gadgets
+wfLoadExtension( 'Gadgets' );
+
+# InputBox
+wfLoadExtension( 'InputBox' );
+
+# Interwiki
+wfLoadExtension( 'Interwiki' );
+
+# ParserFunctions
+wfLoadExtension( 'ParserFunctions' );
+
+# SyntaxHighlight_GeSHi
+wfLoadExtension( 'SyntaxHighlight_GeSHi' );
+
+# TemplateData
+wfLoadExtension( 'TemplateData' );
+
+# TemplateStyles
+wfLoadExtension( 'TemplateStyles' );
+
+# TemplateStylesExtender
+wfLoadExtension('TemplateStylesExtender');
+
+# WikiEditor
+wfLoadExtension( 'WikiEditor' );
+
+# intersection
+wfLoadExtension( 'intersection' );
+
+# Echo
+wfLoadExtension( 'Echo' );
+
+# CLDR
+wfLoadExtension( 'cldr' );
+
+# UniversalLanguageSelector
+wfLoadExtension( 'UniversalLanguageSelector' );
+
+# ShortDescription
+wfLoadExtension( 'ShortDescription' );
+
+# TabberNeue
+wfLoadExtension( 'TabberNeue' );
+
+# Math
+wfLoadExtension ( 'Math' );
+
+# FontAwesome
+wfLoadExtension( 'FontAwesome' );
 
 # Scribunto
 wfLoadExtension( 'Scribunto' );
@@ -309,4 +338,3 @@ $wgNamespacesWithSubpages = [
 ];
 
 # Fin de espacios de nombres
-
