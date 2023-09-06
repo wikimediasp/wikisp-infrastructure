@@ -225,14 +225,20 @@ wfLoadExtension( 'intersection' );
 # Interwiki
 wfLoadExtension( 'Interwiki' );
 
-# Math
-wfLoadExtension( 'Math' );
-
 # Linter
 wfLoadExtension ( 'Linter' );
 $wgParsoidSettings = [
     'linting' => true
 ];
+
+# Math
+wfLoadExtension ( 'Math' );
+
+# OAuth
+wfLoadExtension ( 'OAuth' ); # T345681
+
+# PageForms
+wfLoadExtension( 'PageForms' ); # T345681
 
 # ParserFunctions
 wfLoadExtension( 'ParserFunctions' );
@@ -319,6 +325,9 @@ $wgGroupPermissions['user']['translate'] = true;
 $wgGroupPermissions['user']['translate-messagereview'] = true;
 $wgGroupPermissions['user']['translate-groupreview'] = true;
 $wgGroupPermissions['user']['translate-import'] = true;
+$wgGroupPermissions['user']['mwoauthproposeconsumer'] = true; #T345681
+$wgGroupPermissions['user']['mwoauthupdateownconsumer'] = true; #T345681
+$wgGroupPermissions['sysop']['mwoauthmanagemygrants'] = true; #T345681
 
 # Sysops
 $wgGroupPermissions['sysop']['upload'] = true;
@@ -327,6 +336,8 @@ $wgGroupPermissions['sysop']['translate-manage'] = true;
 $wgGroupPermissions['sysop']['interwiki'] = true;
 $wgGroupPermissions['sysop']['pagelang'] = true;
 $wgGroupPermissions['sysop']['manage-all-push-subscriptions'] = true;
+$wgGroupPermissions['sysop']['mwoauthmanageconsumer'] = true; #T345681
+
 
 /** Grupos especiales - Definidos por WikiSP **/
 
