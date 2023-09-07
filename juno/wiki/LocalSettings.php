@@ -182,13 +182,6 @@ wfLoadExtension( 'Cite' );
 # cldr
 wfLoadExtension( 'cldr' );
 
-# CleanChanges
-wfLoadExtension( 'CleanChanges' );
-$wgCCTrailerFilter = false;
-$wgCCUserFilter = false;
-$wgCCFiltersOnly = false;
-$wgDefaultUserOptions['usenewrc'] = 1;
-
 # CodeEditor
 wfLoadExtension( 'CodeEditor' );
 
@@ -327,7 +320,7 @@ $wgGroupPermissions['user']['translate-groupreview'] = true;
 $wgGroupPermissions['user']['translate-import'] = true;
 $wgGroupPermissions['user']['mwoauthproposeconsumer'] = true; #T345681
 $wgGroupPermissions['user']['mwoauthupdateownconsumer'] = true; #T345681
-$wgGroupPermissions['sysop']['mwoauthmanagemygrants'] = true; #T345681
+$wgGroupPermissions['user']['mwoauthmanagemygrants'] = true; #T345681
 
 # Sysops
 $wgGroupPermissions['sysop']['upload'] = true;
@@ -337,7 +330,7 @@ $wgGroupPermissions['sysop']['interwiki'] = true;
 $wgGroupPermissions['sysop']['pagelang'] = true;
 $wgGroupPermissions['sysop']['manage-all-push-subscriptions'] = true;
 $wgGroupPermissions['sysop']['mwoauthmanageconsumer'] = true; #T345681
-
+$wgGroupPermissions['sysop']['createaccount'] = true; # Necesario para cuentas de bot
 
 /** Grupos especiales - Definidos por WikiSP **/
 
